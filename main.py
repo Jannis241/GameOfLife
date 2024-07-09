@@ -1,7 +1,7 @@
 import os
 import random
 
-dead = "_"
+dead = " "
 alive = "#"
 
 
@@ -30,12 +30,14 @@ class Game:
     def startSimulation(self):
 
         self.initCells()
+        iterationCount = 1
         # hier findet die game loop statt
         while True:
             self.drawCells()
             self.updateCells()
-            if input() == "q":
+            if input("Iteration: " + str(iterationCount) + "    ") == "q":
                 break
+            iterationCount += 1
 
     def getNeighborPositions(self, cell):
         currentPos = (cell.x, cell.y)
