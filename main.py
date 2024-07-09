@@ -16,11 +16,9 @@ class Game:
     def __init__(self, width, height, speed) -> None:
         self.width = width
         self.height = height
-        self.speed = speed  # how often the game should update
         self.cellList = []
 
     def initCells(self):
-        # am anfang einfach dass eine zellen eine 10% chance hat zu leben
         for x in range(self.width):
             for y in range(self.height):
                 isAlive = random.randint(1, 5) == 5  # 1 / 10 chance am leben zu sein
@@ -28,10 +26,8 @@ class Game:
                 self.cellList.append(newCell)
 
     def startSimulation(self):
-
         self.initCells()
         iterationCount = 1
-        # hier findet die game loop statt
         while True:
             self.drawCells()
             self.updateCells()
@@ -57,7 +53,6 @@ class Game:
                     if self.coordAliveDict[pos] == alive:
                         aliveNeighbors += 1
                 except:
-                    # zb links oben gibt es ja keinen linken nachbar deswegen gäbe es einen keyerror
                     pass
             if cell.alive:
                 if aliveNeighbors <= 1:  # under population
@@ -85,7 +80,6 @@ class Game:
                 row += self.coordAliveDict[(x, y)]
 
             print(row)
-
 
 col = Game(100, 10, 10)
 col.startSimulation()
