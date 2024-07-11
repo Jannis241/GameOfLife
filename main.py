@@ -81,5 +81,6 @@ class Game:
 
             print(row)
 
+
 col = Game(100, 10, 10)
 col.startSimulation()
