@@ -43,7 +43,7 @@ class Game:
             newPos = (currentPos[0] + offset[0], currentPos[1] + offset[1])
             positions.append(newPos)
         return positions
-
+    
     def updateCells(self):
         for cell in self.cellList:
             neighborPos = self.getNeighborPositions(cell)  # -> list
